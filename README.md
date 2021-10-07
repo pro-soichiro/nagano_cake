@@ -1,24 +1,46 @@
-# README
+# Name
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+nagano_cake
 
-Things you may want to cover:
+# DEMO
 
-* Ruby version
+"hoge"の魅力が直感的に伝えわるデモ動画や図解を載せる
 
-* System dependencies
+# Features
 
-* Configuration
+"hoge"のセールスポイントや差別化などを説明する
 
-* Database creation
+# Requirement
 
-* Database initialization
+- Ruby on Rails
+- devise
+- refile
+- refile-mini_magick
 
-* How to run the test suite
+# Installation
 
-* Services (job queues, cache servers, search engines, etc.)
+Requirementで列挙したライブラリなどのインストール方法を説明する
 
-* Deployment instructions
+```bash
 
-* ...
+```
+
+# Usage
+
+DEMOの実行方法など、基本的な使い方を説明する
+
+```bash
+
+```
+
+# Note
+
+注意点などがあれば書く
+
+# Author
+
+作成情報を列挙する
+
+* 作成者:間宮漱一朗
+* 所属
+* E-mail:dr.1987626@gmail.com
