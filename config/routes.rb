@@ -4,11 +4,6 @@ Rails.application.routes.draw do
   root :to => 'public/homes#top'
   get 'about' => 'public/homes#about'
 
-  # get 'customers/sign_up' => 'public/registrations#new'
-  # post 'customers' => 'public/registrations#create'
-
-
-
 
   namespace :admin do
     get 'sign_in' => 'devise/sessions#new'
@@ -21,5 +16,6 @@ Rails.application.routes.draw do
 
     resources :items,only: [:index,:new,:create,:show,:edit,:update]
     resources :customers,only: [:index,:edit,:show,:update]
+    resources :orders,only: [:index,:show,:update]
   end
 end
