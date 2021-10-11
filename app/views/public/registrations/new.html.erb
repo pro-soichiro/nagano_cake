@@ -1,7 +1,6 @@
 <h2>新規会員登録</h2>
 
-<%= form_with model: @customer, url: customer_registration_path, local: true do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<%= form_with model: @customer, url: customers_path, local: true do |f| %>
   <table>
     <tr>
       <th>名前</th>
@@ -34,7 +33,7 @@
     <tr>
       <th>住所</th>
       <td></td>
-      <td><%= f.text_area :address,:placeholder => "東京都渋谷区代々木上園町0-0" %></td>
+      <td><%= text_field :address,:placeholder => "東京都渋谷区代々木上園町0-0" %></td>
       <td></td>
       <td></td>
     </tr>
@@ -48,14 +47,14 @@
     <tr>
       <th>パスワード(6文字以上)</th>
       <td></td>
-      <td><%= f.password_field :password %></td>
+      <td><%= f.password_field :encrypted_password %></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <th>パスワード(確認用)</th>
       <td></td>
-      <td><%= f.password_field :password_confirmation %></td>
+      <td><%= f.password_field :encrypted_password_confirmation %></td>
       <td></td>
       <td></td>
     </tr>

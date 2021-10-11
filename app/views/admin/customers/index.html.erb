@@ -13,13 +13,13 @@
         <%= customer.id %>
       </td>
       <td>
-        <%= link_to customer.name ,admin_customer_path(customer) %>
+        <%= link_to customer.last_name+customer.first_name ,root_path %>
       </td>
       <td>
         <%= customer.email %>
       </td>
       <td>
-        <% if item.is_deleted == false %>
+        <% if customer.is_deleted == false %>
           有効
         <% else %>
           退会

@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   root :to => 'public/homes#top'
   get 'about' => 'public/homes#about'
 
+  # get 'customers/sign_up' => 'public/registrations#new'
+  # post 'customers' => 'public/registrations#create'
+
 
 
 
