@@ -1,74 +1,49 @@
 <h2>新規会員登録</h2>
 
-<%= form_with model: @customer, url: customer_registration_path, local: true do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<%= form_with model: @customer, url: admin_customer_path, local: true do |f| %>
   <table>
     <tr>
-      <th>名前</th>
-      <td>(姓)</td>
-      <td><%= f.text_field :last_name,:placeholder =>"令和" %></td>
-      <td>(名)</td>
-      <td><%= f.text_field :first_name,:placeholder =>"道子" %></td>
+      <th>会員ID</th>
+      <td><%= @customer.id %></td>
+    </tr>
+    <tr>
+      <th>氏名</th>
+      <td><%= f.text_field :last_name %></td>
+      <td><%= f.text_field :first_name %></td>
     </tr>
     <tr>
       <th>フリガナ</th>
-      <td>(セイ)</td>
-      <td><%= f.text_field :last_name_kana,:placeholder =>"レイワ" %></td>
-      <td>(メイ)</td>
-      <td><%= f.text_field :first_name_kana,:placeholder =>"ミチコ" %></td>
+      <td><%= f.text_field :last_name_kana %></td>
+      <td><%= f.text_field :first_name_kana %></td>
     </tr>
     <tr>
-      <th>メールアドレス</th>
-      <td></td>
-      <td><%= f.email_field :email,:placeholder =>"sample@example.com" %></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>郵便番号(ハイフンなし)</th>
-      <td></td>
-      <td><%= f.text_field :postal_code,:placeholder => "0000000" %></td>
-      <td></td>
-      <td></td>
+      <th>郵便番号</th>
+      <td><%= f.text_field :postal_code %></td>
     </tr>
     <tr>
       <th>住所</th>
-      <td></td>
-      <td><%= f.text_area :address,:placeholder => "東京都渋谷区代々木上園町0-0" %></td>
-      <td></td>
-      <td></td>
+      <td><%= f.text_area :address %></td>
     </tr>
     <tr>
-      <th>電話番号(ハイフンなし)</th>
-      <td></td>
-      <td><%= f.text_field :telephone_number,:placeholder => "00000000000" %></td>
-      <td></td>
-      <td></td>
+      <th>電話番号</th>
+      <td><%= f.text_field :telephone_number %></td>
     </tr>
     <tr>
-      <th>パスワード(6文字以上)</th>
-      <td></td>
-      <td><%= f.password_field :password %></td>
-      <td></td>
-      <td></td>
+      <th>メールアドレス</th>
+      <td><%= f.email_field :email %></td>
     </tr>
     <tr>
-      <th>パスワード(確認用)</th>
-      <td></td>
-      <td><%= f.password_field :password_confirmation %></td>
-      <td></td>
-      <td></td>
+      <th>会員ステータス</th>
+      <td>
+        <%= f.radio_button :is_deleted,false %>有効
+        <%= f.radio_button :is_deleted,true %>退会
+      </td>
     </tr>
     <tr>
-      <td></td>
       <td></td>
       <td>
-        <%= f.submit "新規登録" %>
+        <%= f.submit "変更を保存" %>
       </td>
-      <td></td>
-      <td></td>
     </tr>
   </table>
 <% end %>
-<h2>既に登録済みの方</h2>
-<p><%= link_to "こちら",root_path %>からログインしてください。</p>
