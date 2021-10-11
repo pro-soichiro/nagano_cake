@@ -11,19 +11,23 @@
   <% @items.each do |item| %>
     <tr>
       <td>
-        <%= item.name %>
+        <%= item.id %>
       </td>
       <td>
-        <%= link_to item.name ,show_admin_item_path(item) %>
+        <%= link_to item.name ,admin_items_path %>
       </td>
       <td>
         <%= item.price %>
       </td>
       <td>
-        <%= item.genre_id %>
+        <%= item.genre.name %>
       </td>
       <td>
-        <%= item.is_active %>
+        <% if item.is_active == true %>
+          販売中
+        <% else %>
+          販売停止中
+        <% end %>
       </td>
     </tr>
   <% end %>
