@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :admins
   devise_for :customers
 
   get 'about' => 'public/homes#about'
-  
+
   namespace :admin do
-    get 'sign_in' => 'sessions#new'
-    post 'sign_in' => 'sessions#create'
-    
-    
+    get 'sign_in' => 'devise/sessions#new'
+    post 'sign_in' => 'devise/sessions#create'
+    delete 'sign_out' => 'devise/sessions#destroy'
+
+    get '' => 'homes#top'
+
+    resources :genres,only: [:index,:create,:edit,:update]
   end
 
 
