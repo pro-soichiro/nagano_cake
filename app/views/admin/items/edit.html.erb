@@ -1,5 +1,5 @@
-<h2>商品新規登録</h2>
-<%= form_with model:@item,url:admin_items_path, local:true do |f|%>
+<h2>商品編集</h2>
+<%= form_with model:@item ,url: admin_item_path(@item),local:true do |f|%>
   <table>
     <tr>
       <td>
@@ -14,7 +14,7 @@
         <%= f.label :name, '商品名' %>
       </td>
       <td>
-        <%= f.text_field :name,:placeholder => "商品名" %>
+        <%= f.text_field :name %>
       </td>
     </tr>
     <tr>
@@ -22,7 +22,7 @@
         <%= f.label :introduction, '商品説明' %>
       </td>
       <td>
-        <%= f.text_area :introduction,:placeholder =>"ここに説明文を記述します" %>
+        <%= f.text_area :introduction %>
       </td>
     </tr>
     <tr>
@@ -44,7 +44,7 @@
         <%= f.label :price, '税抜価格' %>
       </td>
       <td>
-        <%= f.text_field :price,:placeholder => 1000 %>円
+        <%= f.text_field :price %>円
       </td>
     </tr>
     <tr>
@@ -57,5 +57,5 @@
       </td>
     </tr>
   </table>
-  <%= f.submit '新規登録' %>
+  <%= f.submit '変更を保存' %>
 <% end %>
