@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   root :to => 'public/homes#top'
   get 'about' => 'public/homes#about'
 
+  get 'customers/my_page' => 'public/customers#show'
+  get 'customers/edit' => 'public/customers#edit'
+
 
   namespace :admin do
     get 'sign_in' => 'devise/sessions#new'
