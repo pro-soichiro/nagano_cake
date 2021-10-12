@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   get 'customers/my_page' => 'public/customers#show'
   get 'customers/edit' => 'public/customers#edit'
+  patch 'customers' => 'public/customers#update'
+
+
+  # resource :customers,only: [:update]
 
 
   namespace :admin do
