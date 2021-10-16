@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :customers
 
   root :to => 'public/homes#top'
   get 'about' => 'public/homes#about'
@@ -8,9 +7,7 @@ Rails.application.routes.draw do
   get 'customers/edit' => 'public/customers#edit'
   patch 'customers' => 'public/customers#update'
 
-
-  # resource :customers,only: [:update]
-
+  devise_for :customers
 
   namespace :admin do
     get 'sign_in' => 'devise/sessions#new'
