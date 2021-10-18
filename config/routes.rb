@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root :to => 'public/homes#top'
   get 'about' => 'public/homes#about'
-  
+
   get 'items' => 'public/items#index'
   get 'items/:id' => 'public/items#show',as:'item'
 
@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   patch 'customers' => 'public/customers#update'
   get 'customers/unsubscribe' => 'public/customers#unsubscribe'
   patch 'customers/withdraw' => 'public/customers#withdraw'
+
+  # resources :cart_items, only: [:index]
+  get 'cart_items' => 'public/cart_items#index'
 
   get 'addresses' => 'public/addresses#index'
   post 'addresses' => 'public/addresses#create'
