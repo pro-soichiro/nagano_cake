@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get 'addresses' => 'public/addresses#index'
   post 'addresses' => 'public/addresses#create'
+  get 'addresses/:id/edit' => 'public/addresses#edit',as: 'address_edit'
+  patch 'addresses/:id' => 'public/addresses#update',as: 'address'
   # resources :addresses,only: [:edit,:update,:destroy]
 
   devise_for :customers
