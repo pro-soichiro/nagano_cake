@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   root :to => 'public/homes#top'
   get 'about' => 'public/homes#about'
+  
+  get 'items' => 'public/items#index'
+  get 'items/:id' => 'public/items#show',as:'item'
 
   get 'customers/my_page' => 'public/customers#show'
   get 'customers/edit' => 'public/customers#edit'
