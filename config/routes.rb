@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   get 'customers/unsubscribe' => 'public/customers#unsubscribe'
   patch 'customers/withdraw' => 'public/customers#withdraw'
 
+  get 'addresses' => 'public/addresses#index'
+  post 'addresses' => 'public/addresses#create'
+  # resources :addresses,only: [:edit,:update,:destroy]
+
   devise_for :customers
 
   namespace :admin do
