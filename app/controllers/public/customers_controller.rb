@@ -20,7 +20,6 @@ class Public::CustomersController < ApplicationController
   def withdraw
     @customer = current_customer
     @customer.is_deleted = true
-    # @customer.update(customer_params)
     @customer.save
     redirect_to root_path
   end

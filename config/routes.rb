@@ -1,26 +1,20 @@
 Rails.application.routes.draw do
 
-  root :to => 'public/homes#top'
+  root 'public/homes#top'
   get 'about' => 'public/homes#about'
 
-  get 'items' => 'public/items#index'
-  get 'items/:id' => 'public/items#show',as:'item'
+  scope module: :public do
+    resources :items,only: [:index,:show]
 
-  get 'customers/my_page' => 'public/customers#show'
-  get 'customers/edit' => 'public/customers#edit'
-  patch 'customers' => 'public/customers#update'
-  get 'customers/unsubscribe' => 'public/customers#unsubscribe'
-  patch 'customers/withdraw' => 'public/customers#withdraw'
+    resources :customers,only:[:edit,:update]
+    get 'customers/my_page' => 'customers#show'
+    get 'customers/unsubscribe' => 'customers#unsubscribe'
+    patch 'customers/withdraw' => 'customers#withdraw'
 
-  # resources :cart_items, only: [:index]
-  get 'cart_items' => 'public/cart_items#index'
+    get 'cart_items' => 'cart_items#index'
 
-  get 'addresses' => 'public/addresses#index'
-  post 'addresses' => 'public/addresses#create'
-  get 'addresses/:id/edit' => 'public/addresses#edit',as: 'address_edit'
-  patch 'addresses/:id' => 'public/addresses#update',as: 'address'
-  delete 'addresses/:id' => 'public/addresses#destroy'
-  # resources :addresses,only: [:edit,:update,:destroy]
+    resources :addresses,only:[:index,:create,:edit,:update,:destroy]
+  end
 
   devise_for :customers
 
