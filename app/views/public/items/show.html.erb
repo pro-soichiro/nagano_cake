@@ -16,17 +16,14 @@
 <div>
   <div>
     <div>
-      <%= form_with model:@item, local:true do |f| %>
+      <%= form_with model:@cart_item,url:cart_items_path, local:true do |f| %>
         <%= attachment_image_tag @item,:image ,:fill,200,150 %>
         <h3><%= @item.name %></h3>
+        <%= f.hidden_field :item_id, value: @item.id %>
         <p><%= @item.introduction %></p>
         <p>¥<%= @item.price %></p>
         <%= f.select :amount,
-              [[1,1],
-               [2,2],
-               [3,3],
-               [4,4],
-               [5,5] ],
+              *[1..10 ],
               :prompt => "個数選択"
               %>
 

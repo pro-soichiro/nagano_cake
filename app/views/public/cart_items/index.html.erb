@@ -8,7 +8,7 @@
     <th>小計</th>
     <th></th>
   </tr>
-  <%= @cart_items.each do |cart_item| %>
+  <% @cart_items.each do |cart_item| %>
     <tr>
       <td>
         <%= cart_item.item.name %>
@@ -17,10 +17,10 @@
         <%= cart_item.item.price %>
       </td>
       <td>
-        <%= cart_item.amont %>
+        <%= cart_item.amount %>
       </td>
       <td>
-        <%= cart_item.amont * cart_item.item.price %>
+        <%= cart_item.amount * cart_item.item.price %>
       </td>
       <td>
         <%= link_to "削除する",root_path %>
