@@ -6,22 +6,29 @@ class Public::CartItemsController < ApplicationController
   end
 
   def create
+    # itemの情報を受け取っている
     @item = Item.find(cart_item_params[:item_id])
+
+    # フォーム画面で入力された値を受け取っている
     @cart_item = CartItem.new(cart_item_params)
 
-    if Item.find_by(name: @item.name)
-      # puts "商品が存在する"
-      @.amount += @item.amount.to_i
 
-      @cart_item.update
+    if CartItem.find_by(item_id: @item.id)
+      @original_cart_item = CartItem.find_by(item_id: @item.id)
+      @original_cart_item.amount += @cart_item.amount.to_i
+
+      @original_cart_item.save
       redirect_to cart_items_path
     else
-      # puts "商品が存在しない"
       @cart_item.item_id = @item.id
       @cart_item.customer_id = current_customer.id
       @cart_item.save
       redirect_to cart_items_path
     end
+  end
+
+  def update
+
   end
 
 
