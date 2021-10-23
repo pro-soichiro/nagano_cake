@@ -16,6 +16,9 @@ Rails.application.routes.draw do
     resources :cart_items,only:[:index,:create,:update,:destroy]
 
     resources :addresses,only:[:index,:create,:edit,:update,:destroy]
+    resources :orders,only: [:new,:create,:index,:show]
+    post 'orders/confirm' => 'orders#confirm'
+    get 'orders/complete' => 'orders#complete'
   end
 
   devise_for :customers

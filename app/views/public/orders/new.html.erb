@@ -1,0 +1,10 @@
+<h2>注文情報入力</h2>
+<%= form_with model:@order , url:orders_path ,local:true do |f| %>
+  <%= f.label :payment_method, '支払い方法' %>
+  <%= f.collection_radio_buttons :payment_method,
+																 Order.payment_methods_i18n,
+																 :first,
+																 :last %>
+
+
+<% end %>
