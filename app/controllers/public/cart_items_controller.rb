@@ -6,10 +6,8 @@ class Public::CartItemsController < ApplicationController
   end
 
   def create
-    # itemの情報を受け取っている
     @item = Item.find(cart_item_params[:item_id])
 
-    # フォーム画面で入力された値を受け取っている
     @cart_item = CartItem.new(cart_item_params)
 
 
