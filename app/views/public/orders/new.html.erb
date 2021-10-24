@@ -5,6 +5,37 @@
 																 Order.payment_methods_i18n,
 																 :first,
 																 :last %>
-
-
+	<h3>お届け先</h3>
+	<div>
+  	<%= f.radio_button :address_id,'0' %>
+  	<%= f.label :address_id,'ご自身の住所',value: 0 %><br />
+  	<%= '〒' + current_customer.postal_code + ' ' + current_customer.address + ' ' + current_customer.last_name + ' ' + current_customer.first_name %>
+	</div>
+	<div>
+  	<%= f.radio_button :address_id ,'1' %>
+  	<%= f.label :address_id, '登録済住所から選択',value: 1 %><br />
+    <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :full_address) %>
+	</div>
+	<div>
+  	<%= f.radio_button :address_id ,'2' %>
+  	<%= f.label :address_id, '新しいお届け先',value: 2 %><br />
+    <table>
+      <tr>
+        <th>郵便番号(ハイフンなし)</th>
+        <td><%= f.text_field :postal_code,:placeholder => '0000000' %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>住所</th>
+        <td><%= f.text_field :address,:placeholder => '東京都渋谷区代々木神園町0-0' %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>宛名</th>
+        <td><%= f.text_field :name,:placeholder => '令和道子' %></td>
+        <td></td>
+      </tr>
+    </table>
+	</div>
+<%= f.submit "確認画面へ進む" %>
 <% end %>
