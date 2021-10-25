@@ -6,27 +6,25 @@ class Public::OrdersController < ApplicationController
 
   def confirm
     @cart_items = CartItem.all
-    @sum = 0
-    @total_payment = 0
+    # @sum = 0
+    # @total_payment = 0
     @order = Order.new(order_params)
+
     case params[:order][:select_address]
     when '0' then
       # current_customerのお届け先
       @order.postal_code = current_customer.postal_code
       @order.address = current_customer.address
-      @order.name = current_customer.first_name + current_customer.last_name
+      @order.name = current_customer.last_name + current_customer.first_name
     when '1' then
       # 登録済み住所
-      # @order = Order.new(order_params)
       @address = Address.find(params[:order][:address_id])
       @order.postal_code = @address.postal_code
       @order.address = @address.address
       @order.name = @address.name
     when '2' then
       # 新しいお届け先
-      # @order = Order.new(order_params)
     end
-    # binding.pry
   end
 
   def create
@@ -35,15 +33,15 @@ class Public::OrdersController < ApplicationController
     @order.save
 
     @cart_items = CartItem.all
-    @order_detail = OrderDetail.new
-    @order_detail.order_id = @order.id
 
     @cart_items.each do |cart_item|
+      @order_detail = OrderDetail.new
+      @order_detail.order_id = @order.id
       @order_detail.item_id = cart_item.item_id
-      @order_detail.price = cart_item.item.price
+      @order_detail.price = cart_item.item.with_tax_price
       @order_detail.amount = cart_item.amount
+      @order_detail.save
     end
-    @order_detail.save
     @cart_items.destroy_all
     redirect_to orders_complete_path
   end
@@ -56,7 +54,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
-
+    @order = Order.find(params[:id])
   end
 
 

@@ -11,6 +11,7 @@
       </tr>
     </theard>
     <tbody>
+      <% @sum = 0 %>
       <% @cart_items.each do |cart_item| %>
       <tr>
         <td><%= cart_item.item.name %></td>
@@ -39,6 +40,7 @@
     </tr>
     <tr>
       <th>請求金額</th>
+      <% @total_payment = 0 %>
       <% @total_payment += (@sum + @order.shipping_cost) %>
       <td><%= @total_payment.to_s(:delimited) %></td>
       <%= f.hidden_field :total_payment , value: @total_payment %>
