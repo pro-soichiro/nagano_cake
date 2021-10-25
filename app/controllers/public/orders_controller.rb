@@ -7,6 +7,7 @@ class Public::OrdersController < ApplicationController
   def confirm
     @cart_items = CartItem.all
     @sum = 0
+    @total_payment = 0
     @order = Order.new(order_params)
     case params[:order][:select_address]
     when '0' then
@@ -28,6 +29,36 @@ class Public::OrdersController < ApplicationController
     # binding.pry
   end
 
+  def create
+    @order = Order.new(order_params)
+    @order.customer_id = current_customer.id
+    @order.save
+
+    @cart_items = CartItem.all
+    @order_detail = OrderDetail.new
+    @order_detail.order_id = @order.id
+
+    @cart_items.each do |cart_item|
+      @order_detail.item_id = cart_item.item_id
+      @order_detail.price = cart_item.item.price
+      @order_detail.amount = cart_item.amount
+    end
+    @order_detail.save
+    @cart_items.destroy_all
+    redirect_to orders_complete_path
+  end
+
+  def complete
+  end
+
+  def index
+    @orders = Order.all
+  end
+
+  def show
+
+  end
+
 
   private
 
@@ -35,7 +66,8 @@ class Public::OrdersController < ApplicationController
     params.require(:order).permit(:payment_method,
                                   :postal_code,
                                   :address,
-                                  :name)
+                                  :name,
+                                  :total_payment)
   end
 
 end
