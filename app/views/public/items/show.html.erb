@@ -17,7 +17,7 @@
   <div>
     <div>
       <%= form_with model:@cart_item,url:cart_items_path, local:true do |f| %>
-        <%= attachment_image_tag @item,:image ,:fill,200,150 %>
+        <%= attachment_image_tag @item,:image , format: 'jpeg', size: "280x200" %>
         <h3><%= @item.name %></h3>
         <%= f.hidden_field :item_id, value: @item.id %>
         <p><%= @item.introduction %></p>

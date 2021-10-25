@@ -19,7 +19,7 @@
     <h2>商品一覧<span>全<%= @items.count %>件</span></h2>
     <% @items.each do |item| %>
       <div>
-        <%= attachment_image_tag item,:image ,:fill,200,150 %>
+        <%= attachment_image_tag item,:image, format: 'jpeg', size: "280x200" %>
         <%= link_to item.name, item_path(item) %>
         <p>¥<%= item.price %></p>
       </div>
