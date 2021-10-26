@@ -7,10 +7,6 @@ Rails.application.routes.draw do
 
     resources :items,only: [:index,:show]
 
-    get 'customers/sign_up' => 'registrations#new'
-
-    get 'customers/sign_in' => 'sessions#new'
-
     get 'customers/my_page' => 'customers#show'
     resources :customers,only:[:edit,:update]
     get 'customers/unsubscribe' => 'customers#unsubscribe'
@@ -24,13 +20,12 @@ Rails.application.routes.draw do
     resources :addresses,only:[:index,:create,:edit,:update,:destroy]
     post 'orders/confirm' => 'orders#confirm'
     get 'orders/complete' => 'orders#complete'
-  end
-  post 'customers/sign_in' => 'devise/sessions#create' ,as: "customer_session"
 
-  devise_for :customers
+    devise_for :customers
+  end
+
 
   namespace :admin do
-    get 'sign_in' => 'sessions#new'
 
     get '' => 'homes#top'
 
@@ -43,5 +38,11 @@ Rails.application.routes.draw do
     resources :orders,only: [:index,:show,:update]
   end
 
-  devise_for :admins
+  devise_for :admin , module: 'admin'
+
+  # devise_scope :admin do
+  #   get "sign_in" => "admin/sessions#new"
+  #   get "sign_out" => "admin/sessions#destroy"
+  # end
+
 end
