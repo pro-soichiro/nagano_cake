@@ -1,6 +1,6 @@
 <h2>管理者ログイン</h2>
 
-<%= form_with model: @admin, url: admin_sign_in_path ,local:true do |f| %>
+<%= form_with model: @admin, url: admin_session_path ,local:true do |f| %>
 
   <div class="field">
     <%= f.label :email %><br />

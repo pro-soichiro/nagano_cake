@@ -10,7 +10,6 @@
   </thead>
   <tbody>
 
-  <%= form_with model: @cart_item ,url:cart_item_path ,local:true do |f| %>
     <% @cart_items.each do |cart_item| %>
       <tr>
         <td>
@@ -20,12 +19,10 @@
           <%= cart_item.item.with_tax_price %>
         </td>
         <td>
-            <%= f.select :amount,
-                  *[1..10 ],
-                  selected: cart_item.amount
-                  %>
-            <%= f.hidden_field :id, value: cart_item.id %>
+          <%= form_with model: cart_item ,url:cart_item_path(cart_item) ,local:true do |f| %>
+            <%= f.select :amount,*[1..10 ],selected: cart_item.amount %>
             <%= f.submit "変更" %>
+          <% end %>
         </td>
         <td>
           <%= cart_item.subtotal %>
@@ -35,7 +32,6 @@
           <%= link_to "削除する",cart_item_path(cart_item),method: :delete %>
         </td>
       </tr>
-    <% end %>
   <% end %>
   </tbody>
 
