@@ -40,9 +40,4 @@ Rails.application.routes.draw do
 
   devise_for :admin , module: 'admin'
 
-  # devise_scope :admin do
-  #   get "sign_in" => "admin/sessions#new"
-  #   get "sign_out" => "admin/sessions#destroy"
-  # end
-
 end
