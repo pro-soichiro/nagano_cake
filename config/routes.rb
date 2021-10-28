@@ -35,7 +35,11 @@ Rails.application.routes.draw do
 
     resources :customers,only: [:index,:edit,:show,:update]
 
-    resources :orders,only: [:index,:show,:update]
+    resources :orders,only: [:index,:show,:update] do
+    end
+    resources :order_details,only: [:update]
+    # patch 'order_details' => 'order_details#update'
+
   end
 
   devise_for :admin , module: 'admin'
