@@ -1,5 +1,5 @@
 <h2>ショッピングカート</h2>
-<%= link_to "カートを空にする", cart_items_destroy_all_path, method: :delete %>
+<%= link_to "カートを空にする", cart_items_destroy_all_path(@cart_items), method: :delete %>
 <table>
   <thead>
     <th>商品名</th>
@@ -43,6 +43,7 @@
       <%= @sum %>
     </td>
   </tr>
-
-  <%= link_to "情報入力へ進む",new_order_path  %>
+  <% if @cart_items != nil  %>
+    <%= link_to "情報入力へ進む",new_order_path  %>
+  <% end %>
 </table>

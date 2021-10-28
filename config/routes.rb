@@ -2,43 +2,34 @@ Rails.application.routes.draw do
 
 
   scope module: :public do
+
     root 'homes#top'
     get 'about' => 'homes#about'
-
     resources :items,only: [:index,:show]
-
     get 'customers/my_page' => 'customers#show'
     resources :customers,only:[:edit,:update]
     get 'customers/unsubscribe' => 'customers#unsubscribe'
     patch 'customers/withdraw' => 'customers#withdraw'
-
-    resources :cart_items,only:[:index,:create,:update,:destroy]
     delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
-
+    resources :cart_items,only:[:index,:create,:update,:destroy]
     resources :orders,only: [:new,:create,:index,:show]
-
     resources :addresses,only:[:index,:create,:edit,:update,:destroy]
     post 'orders/confirm' => 'orders#confirm'
     get 'orders/complete' => 'orders#complete'
 
     devise_for :customers
+
   end
 
 
   namespace :admin do
 
     get '' => 'homes#top'
-
     resources :items,only: [:index,:new,:create,:show,:edit,:update]
-
     resources :genres,only: [:index,:create,:edit,:update]
-
     resources :customers,only: [:index,:edit,:show,:update]
-
-    resources :orders,only: [:index,:show,:update] do
-    end
+    resources :orders,only: [:index,:show,:update]
     resources :order_details,only: [:update]
-    # patch 'order_details' => 'order_details#update'
 
   end
 
