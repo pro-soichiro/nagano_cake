@@ -3,6 +3,7 @@ class Public::CartItemsController < ApplicationController
   def index
     @cart_items = CartItem.where(customer_id: current_customer.id)
     @sum = 0
+    # binding.pry
   end
 
   def create
