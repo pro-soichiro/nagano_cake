@@ -1,15 +1,158 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+* vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+* files in this directory. Styles in this file should be added after the last require_* statement.
+* It is generally better to create a new file per style scope.
+*
+*= require_tree .
+*= require_self
+*/
+
+/* 共通レイアウト*/
+
+body,
+a,p{
+  margin: 0;
+  padding: 0;
+}
+h2 {
+  font-size: 18px;
+  background-color: #dcdcdc;
+  display: inline-block;
+  padding: 0 20px;
+  font-weight: normal;
+}
+
+a {
+  /*color: black;*/
+  text-decoration: none;
+}
+
+.container {
+  display: flex;
+  margin: 30px 40px 0;
+}
+
+/* header */
+.header {
+  border-bottom: solid 1px black;
+  width: 100%;
+  height: 100px;
+  padding-bottom: 5px;
+}
+
+.header a {
+  display: inline-block;
+  height: 45px;
+  line-height: 45px;
+  border: solid 1px #dcdcdc;
+  border-radius: 10px;
+  text-align: center;
+  margin-left: 20px;
+  padding: 0 10px;
+}
+.header_container {
+  display: flex;
+  margin: 20px 20px;
+  justify-content: space-between;
+}
+
+.header_logo {
+  border: solid 1px;
+  width: 20%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.header_bottom_space {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+/* footer */
+
+.footer {
+  border-top: solid 1px;
+}
+
+/* public/top */
+
+.genre_bar {
+  width: 20%;
+  margin: 0 auto;
+}
+
+.genre_bar > table {
+  width: 80%;
+  border-collapse:  collapse;
+  height: 200px;
+}
+
+.genre_bar > table,
+.genre_bar > th {
+  border: solid 1px;
+}
+
+.genre_bar > table a {
+  color: black;
+  display: block;
+  width: 100%;
+  padding-left: 10px;
+}
+
+.main {
+  width: 80%;
+}
+
+.items_container {
+  display: flex;
+}
+
+.item_container {
+  margin-right: 10px;
+}
+
+.main > p {
+  text-align: right;
+}
+
+/* about */
+
+.about_container {
+  text-align: center;
+}
+
+.about_container > h1 {
+  font-size: 60px;
+}
+
+/* public/registrations new */
+.registrations_container {
+  margin: 30px 80px;
+}
+
+.registrations_container th {
+  font-weight: normal;
+  text-align: left;
+  font-size: 14px;
+}
+
+.registrations_container input,
+.registrations_container textarea {
+  border-radius: 5px;
+  border: solid 1px;
+  padding: 5px 0;
+}
+.registrations_container th{
+  width: 300px;
+}

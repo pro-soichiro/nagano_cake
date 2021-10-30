@@ -10,31 +10,51 @@
   </head>
 
   <body>
-    <% if customer_signed_in? %>
-      <%= link_to "マイページ", customers_my_page_path %>
-      <%= link_to "商品一覧", items_path %>
-      <%= link_to "カート", cart_items_path %>
-      <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
-    <% elsif admin_signed_in? then %>
-      <%= link_to "商品一覧", admin_items_path %>
-      <%= link_to "会員一覧", admin_customers_path %>
-      <%= link_to "注文履歴一覧", admin_path %>
-      <%= link_to "ジャンル一覧", admin_genres_path %>
-      <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "About", about_path %>
-      <%= link_to "商品一覧", items_path %>
-      <%= link_to "新規登録", new_customer_registration_path %>
-      <%= link_to "ログイン", new_customer_session_path %>
-    <% end %>
+    <div class="header">
+      <div class=header_container>
+        <div class="header_logo">LOGO</div>
+        <div class="header_right">
+          <div class="header_linkbar">
+            <% if customer_signed_in? %>
+              <%= link_to "マイページ", customers_my_page_path %>
+              <%= link_to "商品一覧", items_path %>
+              <%= link_to "カート", cart_items_path %>
+              <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+            <% elsif admin_signed_in? then %>
+              <%= link_to "商品一覧", admin_items_path %>
+              <%= link_to "会員一覧", admin_customers_path %>
+              <%= link_to "注文履歴一覧", admin_path %>
+              <%= link_to "ジャンル一覧", admin_genres_path %>
+              <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+            <% else %>
+              <%= link_to "About", about_path %>
+              <%= link_to "商品一覧", items_path %>
+              <%= link_to "新規登録", new_customer_registration_path %>
+              <%= link_to "ログイン", new_customer_session_path %>
+            <% end %>
+          </div>
+          <div class="header_bottom_space">
+            <div class="header_username_space">
+              <% if customer_signed_in? %>
+                <%= "ようこそ" + current_customer.first_name + current_customer.last_name + "さん！" %>
+              <% elsif admin_signed_in? then %>
+                <%= "管理者ID : " + current_admin.id.to_s %><br />
+                <%= "管理者email : " + current_admin.email %>
+              <% end %>
+            </div>
+            <div class="search_bar">
+              <input placeholder="Search">
+            </div>
+          </div>
 
-    <% if customer_signed_in? %>
-      <%= "ようこそ" + current_customer.first_name + current_customer.last_name + "さん！" %>
-    <% elsif admin_signed_in? then %>
-      <%= "管理者ID:" + current_admin.id.to_s %>
-      <%= "管理者email " + current_admin.email %>
-    <% end %>
+        </div>
+      </div>
+    </div>
 
     <%= yield %>
+
+    <footer class="footer">
+
+    </footer>
   </body>
 </html>
