@@ -28,6 +28,13 @@
       <%= link_to "ログイン", new_customer_session_path %>
     <% end %>
 
+    <% if customer_signed_in? %>
+      <%= "ようこそ" + current_customer.first_name + current_customer.last_name + "さん！" %>
+    <% elsif admin_signed_in? then %>
+      <%= "管理者ID:" + current_admin.id.to_s %>
+      <%= "管理者email " + current_admin.email %>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

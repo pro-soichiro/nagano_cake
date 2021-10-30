@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
     root 'homes#top'
     get 'about' => 'homes#about'
+    get 'items/genre/:id' => 'items#genre_index',as: 'genre_index'
     resources :items,only: [:index,:show]
     get 'customers/my_page' => 'customers#show'
     get 'customers/unsubscribe' => 'customers#unsubscribe'
