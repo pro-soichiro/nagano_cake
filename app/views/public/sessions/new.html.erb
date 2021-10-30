@@ -2,7 +2,7 @@
 
 <%= form_with model:@customer ,url: customer_session_path, locatl:true do |f| %>
   <h3>会員の方はこちらからログイン</h3>
-
+  <%= flash[:error] %>
   <div>
     <%= f.label :email,"メールアドレス" %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email",:placeholder => "sample@example.com" %>

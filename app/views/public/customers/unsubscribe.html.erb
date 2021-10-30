@@ -7,6 +7,6 @@
 <div>
   <%= link_to "退会しない",customers_my_page_path %>
   <%= form_with model: @customer, url: customers_withdraw_path, local:true do |f| %>
-    <%= f.submit "退会する" %>
+    <%= f.submit "退会する" , data: { confirm: "本当に退会しますか？"}%>
   <% end %>
 </div>

@@ -43,6 +43,7 @@ class Public::OrdersController < ApplicationController
       @order_detail.save
     end
     @cart_items.destroy_all
+    # binding.pry
     redirect_to orders_complete_path
   end
 
@@ -50,7 +51,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.all
+    @orders = Order.where(customer_id: current_customer.id)
   end
 
   def show

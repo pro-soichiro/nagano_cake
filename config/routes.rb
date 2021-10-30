@@ -7,15 +7,15 @@ Rails.application.routes.draw do
     get 'about' => 'homes#about'
     resources :items,only: [:index,:show]
     get 'customers/my_page' => 'customers#show'
-    resources :customers,only:[:edit,:update]
     get 'customers/unsubscribe' => 'customers#unsubscribe'
     patch 'customers/withdraw' => 'customers#withdraw'
+    resources :customers,only:[:edit,:update]
     delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
     resources :cart_items,only:[:index,:create,:update,:destroy]
-    resources :orders,only: [:new,:create,:index,:show]
-    resources :addresses,only:[:index,:create,:edit,:update,:destroy]
     post 'orders/confirm' => 'orders#confirm'
     get 'orders/complete' => 'orders#complete'
+    resources :orders,only: [:new,:create,:index,:show]
+    resources :addresses,only:[:index,:create,:edit,:update,:destroy]
 
     devise_for :customers
 
