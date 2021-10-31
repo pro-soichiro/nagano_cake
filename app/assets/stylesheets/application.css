@@ -15,6 +15,10 @@
 */
 
 /* 共通レイアウト*/
+
+*{
+  box-sizing: border-box;
+}
 html {
   height: 100%;
 }
@@ -170,6 +174,10 @@ a {
 .about_container > h1 {
   font-size: 60px;
 }
+.about_container > h3 {
+  font-size: 20px;
+  background-color: #fff;
+}
 
 /* public/registrations new */
 .registrations_container {
@@ -204,6 +212,7 @@ a {
 
 .login_container {
   margin: 20px 150px;
+  height: 500px;
 }
 
 .login_table tr td:nth-child(1){
@@ -226,6 +235,7 @@ input #customer_email {
   margin-top: 30px;
   padding: 7px 30px;
   margin-bottom: 50px;
+  cursor: pointer;
 }
 
 
@@ -234,7 +244,7 @@ input #customer_email {
 .items_index_container {
   display: flex;
   margin: 60px;
-  height: 400px;
+  height: 450px;
 }
 
 .items_index_genre_bar table,
@@ -470,4 +480,341 @@ td.width {
   padding: 5px 20px;
   font-weight: bold;
   cursor: pointer;
+}
+
+/* public/orders/confirm */
+
+.orders_confirm_container {
+  margin: 20px 80px;
+  height: 500px;
+}
+
+.orders_confirm_container h2 {
+  margin: 0 0 10px 80px;
+}
+
+.orders_confirm_item {
+  display: flex;
+}
+.orders_confirm_item th.width,
+.orders_confirm_item td.width {
+  width: 100px;
+}
+.orders_confirm_item th.name_width {
+  width: 300px;
+}
+
+.orders_confirm_item table {
+  border-collapse:  collapse;
+  margin-bottom: 40px;
+  font-size: 14px;
+}
+
+.orders_confirm_item table th {
+  border: solid 1px;
+  text-align: left;
+  background: #F3F3F3;
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.orders_confirm_item_btn {
+  display: block;
+  padding: 5px 20px;
+  line-height: 20px;
+  font-size: 14px;
+  height: 40px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.orders_confirm_items_table {
+  margin-right: 50px;
+}
+
+.orders_confirm_items_table th {
+  height: 45px;
+}
+
+div.orders_confirm_payment,
+div.orders_confirm_address {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.orders_confirm_payment h3,
+.orders_confirm_address h3 {
+  background-color: #fff;
+  font-weight: bold;
+  padding: 0;
+  margin: 0 20px 0 0;
+  font-size: 16px;
+}
+
+/* orders/complete */
+
+.orders_complete_container {
+  height: 500px;
+}
+
+.orders_complete_container h1 {
+  line-height: 500px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+/* customers/show */
+
+.customers_show_container {
+  margin: 50px;
+  height: 500px;
+}
+
+.customers_show_container h2 {
+  margin: 0 0 10px 80px;
+}
+
+.customers_show_container div {
+  display: flex;
+  margin: 20px 0;
+}
+
+.customers_show_container div h3 {
+  display: block;
+  background-color: #fff;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  width: 100px;
+}
+
+.customers_show_edit_btn {
+  padding: 5px 20px;
+  font-size: 14px;
+}
+
+.customers_show_btn {
+  padding: 5px 30px;
+  font-size: 14px;
+}
+table.customers_show_table {
+  border-collapse:  collapse;
+}
+table.customers_show_table th{
+  width: 150px;
+  background: #F3F3F3;
+}
+table.customers_show_table td{
+  width: 400px;
+}
+table.customers_show_table th,
+table.customers_show_table td{
+  border: solid 1px;
+  font-size: 14px;
+  font-weight: normal;
+  text-align: left;
+  padding: 10px 5px;
+}
+
+/* customers/unsubscribe  */
+
+.unsubscribe_container {
+  height: 450px;
+  text-align: center;
+}
+.unsubscribe_container h3 {
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #fff;
+}
+.unsubscribe_container > div {
+  margin: 100px auto 0;
+}
+
+.unsubscribe_btns {
+  display: flex;
+  margin: 40px auto 0;
+  justify-content: center;
+}
+input.unsubscribe_btn {
+  margin-left: 20px;
+  cursor: pointer;
+  background-color: red;
+  color: #fff;
+}
+.unsubscribe_btn {
+  font-size: 14px;
+  padding: 5px;
+  width: 120px;
+}
+
+/* customers/edit */
+
+
+.customers_edit_container {
+  margin: 50px;
+  height: 450px;
+}
+
+.customers_edit_container h2 {
+  margin-left: 80px;
+}
+
+.customers_edit_container table,
+.addresses_index_table_index {
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.customers_edit_container table th {
+  font-weight: normal;
+  text-align: left;
+  padding: 10px 5px;
+  width: 150px;
+}
+.customers_edit_container table input,
+.addresses_index_table_new input {
+  padding: 5px;
+  border-radius: 5px;
+  border: solid 1px;
+}
+.customers_edit_container table textarea,
+.addresses_index_table_new textarea {
+  border: solid 1px;
+  border-radius: 5px;
+  width: 100%;
+  height: 26px;
+}
+.customers_edit_table tr td:nth-child(3),
+.customers_edit_table tr td:nth-child(6) {
+  width: 40px;
+}
+
+.customers_edit_btn {
+  font-size: 12px;
+  padding: 10px 20px;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* addresses/index */
+
+.addresses_index_container {
+  margin: 50px;
+  height: 450px;
+}
+.addresses_index_table_new {
+  margin: 30px 0 50px;
+}
+
+.addresses_index_container h2 {
+  margin-left: 80px;
+}
+.addresses_index_table_new th {
+  font-weight: normal;
+  text-align: left;
+  width: 200px;
+  font-size: 14px;
+}
+.addresses_index_table_new tr:nth-child(1) td:nth-child(3) {
+  width: 250px;
+}
+.addresses_index_table_new tr:nth-child(1) td:nth-child(4) {
+  width: 120px;
+}
+.addresses_btn {
+  width: 100%;
+}
+
+.addresses_index_table_index {
+  font-size: 14px;
+}
+.addresses_index_table_index th {
+  text-align: left;
+  background: #F3F3F3;
+  font-weight: normal;
+}
+.addresses_index_table_index th:nth-child(2) {
+  width: 250px;
+}
+.addresses_index_table_index th:nth-child(3) {
+  width: 100px;
+}
+.addresses_index_table_index th:nth-child(4) {
+  width: 200px;
+}
+.addresses_index_table_index th,
+.addresses_index_table_index td {
+  padding: 10px 3px;
+}
+.btn_ruby {
+  background-color: red;
+  color: #fff;
+}
+.address_btn {
+  padding: 5px 12px;
+  cursor: pointer;
+}
+.address_btn + .address_btn {
+  margin-left: 10px;
+}
+.addresses_btns {
+  display: flex;
+  justify-content: center;
+}
+
+/* addresses/edit */
+
+.addresses_edit_container {
+  margin: 50px;
+  height: 450px;
+}
+
+.addresses_edit_container h2 {
+  margin-left: 80px;
+}
+
+.addresses_edit_table {
+  font-size: 14px;
+}
+
+.addresses_edit_table textarea,
+.addresses_edit_table input{
+  padding: 5px 0;
+  border-radius: 5px;
+  border: solid 1px;
+  width: 100%;
+  height: 30px;
+}
+.addresses_edit_table th{
+  text-align: left;
+  font-weight: normal;
+  width: 180px;
+}
+
+.addresses_edit_table td:nth-child(1) {
+  width: 200px;
+}
+
+.addresses_edit_table tr:nth-child(1) td:nth-child(3),
+.addresses_edit_table tr:nth-child(3) td:nth-child(3) {
+  width: 250px;
+}
+
+.addresses_edit_table tr:nth-child(1) td:nth-child(4),
+.addresses_edit_table tr:nth-child(2) td:nth-child(3),
+.addresses_edit_table tr:nth-child(3) td:nth-child(4) {
+  width: 50px;
+}
+
+.addresses_edit_table td:nth-child(5) {
+  width: 120px;
+}
+.address_save_btn {
+  width: 100%;
+  cursor: pointer;
+  line-height: 14px;
 }

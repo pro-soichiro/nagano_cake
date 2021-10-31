@@ -1,41 +1,63 @@
-<h2>会員情報編集</h2>
+<div class="customers_edit_container">
+  <h2>会員情報編集</h2>
 
-<%= form_with model: @customer, url: customer_path, local: true do |f| %>
-  <table>
-    <tr>
-      <th>氏名</th>
-      <td><%= f.text_field :last_name %></td>
-      <td><%= f.text_field :first_name %></td>
-    </tr>
-    <tr>
-      <th>フリガナ</th>
-      <td><%= f.text_field :last_name_kana %></td>
-      <td><%= f.text_field :first_name_kana %></td>
-    </tr>
-    <tr>
-      <th>郵便番号</th>
-      <td><%= f.text_field :postal_code %></td>
-    </tr>
-    <tr>
-      <th>住所</th>
-      <td><%= f.text_area :address %></td>
-    </tr>
-    <tr>
-      <th>電話番号</th>
-      <td><%= f.text_field :telephone_number %></td>
-    </tr>
-    <tr>
-      <th>メールアドレス</th>
-      <td><%= f.email_field :email %></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td>
-        <%= f.submit "編集内容を保存" %>
-      </td>
-      <td>
-        <%= link_to "退会する",customers_unsubscribe_path %>
-      </td>
-    </tr>
-  </table>
-<% end %>
+  <%= form_with model: @customer, url: customer_path, local: true do |f| %>
+    <table class="customers_edit_table">
+      <tr>
+        <th>氏名</th>
+        <td><%= f.text_field :last_name %></td>
+        <td></td>
+        <td><%= f.text_field :first_name %></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>フリガナ</th>
+        <td><%= f.text_field :last_name_kana %></td>
+        <td></td>
+        <td><%= f.text_field :first_name_kana %></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>郵便番号</th>
+        <td><%= f.text_field :postal_code %></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>住所</th>
+        <td colspan="5"><%= f.text_area :address %></td>
+      </tr>
+      <tr>
+        <th>電話番号</th>
+        <td><%= f.text_field :telephone_number %></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>メールアドレス</th>
+        <td><%= f.email_field :email %></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td colspan="2">
+          <%= f.submit "編集内容を保存",class:"btn btn_green customers_edit_btn"%>
+        </td>
+        <td></td>
+        <td>
+          <%= link_to "退会する",customers_unsubscribe_path,class:"btn btn_red customers_edit_btn" %>
+        </td>
+        <td></td>
+      </tr>
+    </table>
+  <% end %>
+</div>
