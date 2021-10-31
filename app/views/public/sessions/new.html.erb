@@ -1,24 +1,30 @@
-<h2>ログイン</h2>
+<div class="login_container">
+  <h2>ログイン</h2>
 
-<%= form_with model:@customer ,url: customer_session_path, locatl:true do |f| %>
-  <h3>会員の方はこちらからログイン</h3>
-  <%= flash[:error] %>
-  <div>
-    <%= f.label :email,"メールアドレス" %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email",:placeholder => "sample@example.com" %>
-  </div>
+  <%= form_with model:@customer ,url: customer_session_path, locatl:true do |f| %>
+    <h3>会員の方はこちらからログイン</h3>
+    <%= flash[:error] %>
+    <table class="login_table">
+      <tr>
+        <td></td>
+        <td><%= f.label :email,"メールアドレス" %></td>
+        <td><%= f.email_field :email, autofocus: true, autocomplete: "email",:placeholder => "sample@example.com" %></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><%= f.label :password,"パスワード" %></td>
+        <td><%= f.password_field :password, autocomplete: "current-password" %></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td><%= f.submit "ログイン" ,class: "btn_blue btn login_btn" %></td>
+      </tr>
+    </table>
+  <% end %>
 
-  <div>
-    <%= f.label :password,"パスワード" %>
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <div>
-    <%= f.submit "ログイン" %>
-  </div>
-<% end %>
-
- <h3>会員登録がお済みでない方</h3>
- <p>
-   <%= link_to "こちら",new_customer_registration_path %>から新規登録を行ってください。
- </p>
+  <h3>会員登録がお済みでない方</h3>
+  <p>
+    <%= link_to "こちら",new_customer_registration_path %>から新規登録を行ってください。
+  </p>
+</div>

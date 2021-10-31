@@ -3,7 +3,7 @@
 
   <%= form_with model: @customer, url: customer_registration_path, local: true do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
-    <table>
+    <table class="registrations_table">
       <tr>
         <th>名前</th>
         <td>(姓)</td>
@@ -35,8 +35,7 @@
       <tr>
         <th>住所</th>
         <td></td>
-        <td><%= f.text_area :address,:placeholder => "東京都渋谷区代々木上園町0-0",size: "70x1" %></td>
-
+        <td colspan="3"><%= f.text_area :address,:placeholder => "東京都渋谷区代々木上園町0-0" ,size:"60x1"%></td>
       </tr>
       <tr>
         <th>電話番号(ハイフンなし)</th>
@@ -63,7 +62,7 @@
         <td></td>
         <td></td>
         <td>
-          <%= f.submit "新規登録" %>
+          <%= f.submit "新規登録" , class: "registrations_btn btn_green" %>
         </td>
         <td></td>
         <td></td>
