@@ -55,7 +55,9 @@
       </tr>
     </tbody>
   </table>
-  <% unless @cart_items.blank?  %>
-    <%= link_to "情報入力へ進む",new_order_path,class:"btn btn_green cart_item_index_next"  %>
-  <% end %>
+  <div class="cart_item_index_next_container">
+    <% unless @cart_items.blank?  %>
+      <%= link_to "情報入力へ進む",new_order_path,class:"btn btn_green cart_item_index_next"  %>
+    <% end %>
+  </div>
 </div>

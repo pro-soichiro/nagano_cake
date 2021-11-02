@@ -48,9 +48,16 @@ a {
   text-decoration: none;
 }
 
-.container {
+.top_container {
   display: flex;
-  margin: 30px 40px 0;
+  margin: 30px 40px;
+}
+.main_visual{
+  height: 250px;
+}
+.main_visual p {
+  margin: 60px 120px;
+  padding: 30px 0;
 }
 
 /* btn */
@@ -169,6 +176,7 @@ a {
 
 .about_container {
   text-align: center;
+  margin: 40px auto;
 }
 
 .about_container > h1 {
@@ -182,6 +190,12 @@ a {
 /* public/registrations new */
 .registrations_container {
   margin: 30px 80px;
+}
+.registrations_container h2 {
+  margin-left: 50px;
+}
+.registrations_container > p {
+  margin-left: 80px;
 }
 
 .registrations_container th {
@@ -214,6 +228,13 @@ a {
   margin: 20px 150px;
   height: 500px;
 }
+.login_container h3 {
+  margin-left: 20px;
+}
+
+.login_container > p {
+  margin-left: 80px;
+}
 
 .login_table tr td:nth-child(1){
   width: 50px;
@@ -221,6 +242,14 @@ a {
 
 .login_table tr td:nth-child(2){
   width: 150px;
+}
+
+.login_table tr td:nth-child(3){
+  width: 400px;
+}
+.login_table tr:nth-child(1) td:nth-child(3) input,
+.login_table tr:nth-child(2) td:nth-child(3) input{
+  width: 100%;
 }
 
 input #customer_password,
@@ -368,12 +397,29 @@ input #customer_email {
   background: #F3F3F3;
   font-weight: normal;
 }
+.cart_item_index_table th:nth-child(1) {
+  width: 40%;
+}
+.cart_item_index_table th:nth-child(2),
+.cart_item_index_table th:nth-child(3),
+.cart_item_index_table th:nth-child(4),
+.cart_item_index_table th:nth-child(5){
+  width: 15%;
+}
+
+.cart_item_index_table tbody tr td:nth-child(1){
+  width: 90px;
+}
+.cart_item_index_table tbody tr td:nth-child(2){
+  width: 360px;
+}
+
 
 .cart_item_index_btn {
-  padding: 5px 10px;
+  padding: 5px 20px;
   line-height: 20px;
   font-size: 14px;
-  height: 20px;
+  height: 30px;
 }
 
 td.line,
@@ -387,12 +433,9 @@ td.line,
 th {
   padding: 5px;
 }
-td.width {
-  width: 80px;
-}
 
 .cart_item_destroy_btn {
-  padding: 10px;
+  padding: 10px 20px;
   font-size: 10px;
 }
 
@@ -403,12 +446,15 @@ td.width {
   padding: 10px 15px;
   font-size: 14px;
 }
+.cart_item_index_next_container {
+  text-align: center;
+}
 
 .cart_item_index_next {
-  display: block;
-  width: 120px;
-  margin: 0 auto;
-  text-align: center;
+  display: inline-block;
+  /*width: 120px;*/
+  /*margin: 0 auto;*/
+  /*text-align: center;*/
   padding: 5px 20px;
 }
 
@@ -817,4 +863,131 @@ input.unsubscribe_btn {
   width: 100%;
   cursor: pointer;
   line-height: 14px;
+}
+
+/* orders/index */
+
+.orders_index_container {
+  margin: 20px 50px 50px;
+  /*height: 500px;*/
+}
+
+.orders_index_container h2 {
+  margin-left: 80px;
+}
+
+
+.orders_index_table {
+  width: 100%;
+  font-size: 14px;
+  margin-top: 30px;
+  border-collapse:  collapse;
+}
+
+.orders_index_table th {
+  text-align: left;
+  background: #F3F3F3;
+  font-weight: normal;
+  padding: 10px 5px;
+}
+
+.orders_index_table td {
+  padding: 3px;
+}
+
+.orders_index_table thead tr th:nth-child(2) {
+  width: 40%;
+}
+.orders_index_table thead tr th:nth-child(3) {
+  width: 15%;
+}
+.orders_index_table thead tr th:nth-child(4) {
+  width: 7%;
+}
+.orders_index_table thead tr th:nth-child(1) ,
+.orders_index_table thead tr th:nth-child(5) ,
+.orders_index_table thead tr th:nth-child(6) {
+  width: 14%;
+}
+.orders_index_table tbody tr td:nth-child(6) {
+  text-align: center;
+}
+.orders_index_btn {
+  padding: 7px 10px;
+}
+
+/* orders/show */
+
+.orders_show_container {
+  margin: 20px 50px 70px;
+}
+
+.orders_show_container h2 {
+  margin-left: 80px;
+}
+
+.orders_show_container table {
+  font-size: 14px;
+  text-align: left;
+  border-collapse: collapse;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.orders_show_container th{
+  background: #F3F3F3;
+}
+
+.orders_show_container h3{
+  font-weight:  bold;
+  background-color: #fff;
+  /*text-align: left;*/
+  padding: 0;
+  margin: 0;
+}
+
+.orders_show_container th,
+.orders_show_container td {
+  font-weight: normal;
+  padding: 10px 3px;
+}
+
+.order_container {
+  display: flex;
+  width: 100%;
+}
+
+.orders_show_order_info {
+  width: 60%;
+}
+
+.orders_show_order_info table {
+  width: 100%;
+}
+
+.orders_show_order_info table th {
+  width: 120px;
+}
+
+.orders_show_order_payment {
+  margin-left: 10px;
+  width: 30%;
+}
+
+.orders_show_order_payment table {
+  width: 100%;
+}
+
+.orders_show_order_payment table tbody tr:nth-child(3) th,
+.orders_show_order_payment table tbody tr:nth-child(3) td{
+  font-weight: bold
+
+}
+
+.order_detail_container {
+  width: 70%;
+}
+
+.order_detail_container table {
+  width: 100%;
 }
