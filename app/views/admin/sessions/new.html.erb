@@ -1,18 +1,23 @@
-<h2>管理者ログイン</h2>
+<div class="sessions_new_container">
+  <h2>管理者ログイン</h2>
 
-<%= form_with model: @admin, url: admin_session_path ,local:true do |f| %>
+  <%= form_with model: @admin, url: admin_session_path ,local:true do |f| %>
+    <div class="sessions_new_form">
+      <table>
+        <tr>
+          <td><%= f.label :email,'メールアドレス' %></td>
+          <td><%= f.email_field :email, autofocus: true, autocomplete: "email",:placeholder => "sample@example.com" %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :password,'パスワード' %></td>
+          <td><%= f.password_field :password, autocomplete: "current-password" %></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><%= f.submit "ログイン" ,class:"btn btn_blue login_btn" %></td>
+        </tr>
+      </table>
 
-  <div class="field">
-    <%= f.label :email,'メールアドレス' %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email",:placeholder => "sample@example.com" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password,'パスワード' %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "ログイン" %>
-  </div>
-<% end %>
+    </div>
+  <% end %>
+</div>
