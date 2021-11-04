@@ -36,7 +36,7 @@
           <div class="header_bottom_space">
             <div class="header_username_space">
               <% if customer_signed_in? %>
-                <%= "ようこそ" + current_customer.first_name + current_customer.last_name + "さん！" %>
+                <%= "ようこそ" + current_customer.last_name + current_customer.first_name + "さん！" %>
               <% elsif admin_signed_in? then %>
                 <%= "【管理者 Email】 " + current_admin.email %>
               <% end %>

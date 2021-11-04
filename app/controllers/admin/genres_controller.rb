@@ -12,7 +12,7 @@ class Admin::GenresController < ApplicationController
 
     def edit
        @genre = Genre.find(params[:id])
-       @items = Item.where(genre_id: @genre.id)
+      # @items = Item.where(genre_id: @genre.id)
     end
 
     def update

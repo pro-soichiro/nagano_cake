@@ -23,6 +23,10 @@ html {
   height: 100%;
 }
 
+
+body {
+  min-height: 600px;
+}
 body,
 a,p,h1{
   margin: 0;
@@ -1003,7 +1007,7 @@ input.unsubscribe_btn {
 
 .sessions_new_container {
   margin: 20px 80px;
-  height: 360px;
+  min-height: 450px;
 }
 
 
@@ -1027,11 +1031,14 @@ input.unsubscribe_btn {
 /* items/index */
 
 .admin_items_index_container {
-  margin: 30px 120px;
+  margin: 10px 120px;
+  min-height: 450px;
 }
 
 .admin_items_index_container h2 {
-  margin-left: 30px;
+  margin-left: 40px;
+  font-size: 18px;
+  padding: 0 20px;
 }
 
 .admin_items_index_container > div {
@@ -1065,28 +1072,33 @@ a.plus_logo {
 }
 
 .admin_items_index_container table {
-  margin: 30px 0;
+  /*margin: 30px 0;*/
   text-align: left;
   width: 100%;
   border-collapse: collapse;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .admin_items_index_container table a {
   color: black;
 }
 .admin_items_index_container table th{
-  padding: 10px;
-  background: #F3F3F3;;
+  padding: 7px;
+  background: #F3F3F3;
 }
 
 .admin_items_index_container table td{
-  padding: 10px;
+  padding: 7px;
 }
 
 .admin_items_index_container table tr{
   border-style: solid;
   border-color: black;
+  border-width: 1px 0;
+}
+.admin_customers_index_container table tr{
+  border-style: solid;
+  border-color: #C7C7C7;
   border-width: 1px 0;
 }
 .is_active_true {
@@ -1106,6 +1118,7 @@ a.plus_logo {
 
 .admin_items_new_container {
   margin: 20px 120px;
+  min-height: 450px;
 }
 
 .admin_items_new_container table {
@@ -1154,6 +1167,7 @@ input.admin_items_new_btn {
 
 .admin_items_show_container {
   margin: 20px 60px;
+  min-height: 450px;
 }
 .admin_items_show_container h2 {
   margin-left: 80px;
@@ -1178,27 +1192,216 @@ input.admin_items_new_btn {
 .admin_items_show_btn_div {
   text-align: center;
 }
+
 .admin_items_show_btn {
   padding: 10px 30px;
 }
 
+/* genres/index */
+
+.admin_genres_index_container {
+  margin: 30px 50px;
+  height: 450px;
+}
+
+.admin_genres_index_container h2 {
+  margin-left: 50px;
+}
+
+.admin_genres_index_new {
+  margin: 30px 0;
+}
+
+.admin_genres_index_new input#genre_name {
+  margin: 0 30px;
+}
+
+.admin_genres_index_new input.btn {
+  padding: 5px 20px;
+}
+
+.admin_genres_index_container table {
+  border-collapse: collapse;
+  width: 35%;
+  font-size: 14px;
+}
+
+.admin_genres_index_container table tr{
+  border-style: solid;
+  border-color: #b2b2b2;
+  border-width: 1px 0;
+}
+
+.admin_genres_index_container table th{
+  padding: 10px;
+  background: #f3f3f3;
+}
+
+.admin_genres_index_container table td{
+  padding: 10px;
+}
+
+.admin_genres_index_container table td:nth-child(2) {
+  text-align: center;
+}
+
+.admin_genres_index_container table a.btn {
+  padding: 10px;
+  font-size: 12px;
+}
+
+/* customers */
+
+.admin_customers_btn {
+  margin-left: 80px;
+}
+
+.admin_customers_edit_container h2 {
+  margin-left: 0;
+}
+
+.admin_customers_edit_table tr td:nth-child(5) {
+  width: 50px;
+}
 
 
+input.admin_customers_edit_btn {
+  padding: 10px 30px;
+  width: 90%;
+  font-size: 14px;
+}
 
 
+/* orders/show */
+
+.admin_orders_show_container {
+  margin: 40px;
+  min-height: 450px;
+}
+
+.admin_orders_show_container h2 {
+  margin: 0 0 0 80px;
+}
+
+.admin_orders_show_container table {
+  font-size: 16px;
+}
+.admin_orders_show_container > table {
+  margin: 10px 0 30px;
+  width: 100%;
+}
+
+.admin_orders_show_container > table th {
+  text-align: left;
+  vertical-align: top;
+  width: 20%;
+}
+
+.admin_orders_show_container > table td {
+  width: 80%;
+}
+
+.admin_orders_show_container table a {
+  color: black;
+  cursor: pointer;
+}
 
 
+.admin_orders_show_details_container {
+  display: flex;
+}
+
+.admin_orders_show_detail {
+  width: 100%;
+}
+.admin_orders_show_detail table {
+  width: 90%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.admin_orders_show_detail table tr {
+  border-style: solid;
+  border-color: #b2b2b2;
+  border-width: 1px 0;
+}
+
+.admin_orders_show_detail table th {
+  text-align: left;
+  padding: 10px;
+  background: #f3f3f3;
+}
+
+.admin_orders_show_detail table th:nth-child(1) {
+  width: 25%;
+}
+
+.admin_orders_show_detail table th:nth-child(2) {
+  width: 20%;
+}
+
+.admin_orders_show_detail table th:nth-child(5) {
+  text-align: center;
+}
+
+.admin_orders_show_detail table td {
+  text-align: left;
+  padding: 10px;
+}
+
+.admin_orders_show_detail table td:nth-child(5){
+  text-align: center;
+}
+
+.admin_orders_show_detail table th:nth-child(2),
+.admin_orders_show_detail table th:nth-child(3),
+.admin_orders_show_detail table th:nth-child(4),
+.admin_orders_show_detail table td:nth-child(2),
+.admin_orders_show_detail table td:nth-child(3),
+.admin_orders_show_detail table td:nth-child(4){
+  text-align: right;
+}
 
 
+.admin_orders_show_detail table td:nth-child(5) select {
+  padding: 3px 20px;
+  border-radius: 5px;
+  border-color: #e4e4e4;
+  margin-right: 20px;
+}
 
+.admin_orders_show_price {
+  width: 250px;
+  display: flex;
+  align-items: flex-end;
+}
 
+.admin_orders_show_price table {
+  width: 100%;
+  font-size: 14px;
+}
 
+.admin_orders_show_price table th {
+  text-align: left;
+}
 
+.admin_orders_show_price table td {
+  text-align: right;
+}
 
+.admin_orders_show_price table tr:nth-child(3) {
+  font-weight: bold;
+}
 
+.order_show_btn {
+  padding: 7px;
+  font-size: 10px;
+  cursor: pointer;
+}
 
-
-
-
-
-
+.admin_orders_show_container select#order_status {
+  padding: 3px;
+  border-radius: 5px;
+  border-color: #e4e4e4;
+  margin-right: 20px;
+}
